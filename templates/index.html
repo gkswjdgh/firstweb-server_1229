@@ -46,6 +46,8 @@
             <span id="speed-val" style="font-size:12px; color:var(--accent-color);">50%</span>
         </div>
         <input type="range" min="0" max="100" value="50" oninput="updateVal('speed', this.value)">
+        <input type="range" min="0" max="100" value="50" oninput="updateVal('speed1', this.value)">
+        <input type="range" min="0" max="100" value="50" oninput="updateVal('speed2', this.value)">
     </div>
 
     <script src="{{ url_for('static', path='/js/script.js') }}"></script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PRO CONTROLLER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
+    
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <h2><span class="status-dot"></span>SYSTEM CONTROLLER</h2>
+
+    <div class="panel">
+        <span class="label">Scene Trigger</span>
+        <div class="btn-grid">
+            <button onclick="sendBtn('scene1')">SCENE 01</button>
+            <button onclick="sendBtn('scene2')">SCENE 02</button>
+            <button onclick="sendBtn('scene3')">INTERACTION</button>
+            <button onclick="sendBtn('scene4')">ENDING</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <span class="label">Real-time FX</span>
+        <div class="btn-grid">
+            <button onclick="sendBtn('strobe_on')" style="color:var(--accent-color); border:1px solid var(--accent-color);">STROBE</button>
+            <button onclick="sendBtn('blackout')">BLACK OUT</button>
+        </div>
+        <button class="danger" onclick="sendBtn('reset')">⚠️ SYSTEM RESET</button>
+    </div>
+
+    <div class="panel">
+        <span class="label">Master Control</span>
+        
+        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:12px;">Dimmer</span>
+            <span id="dimmer-val" style="font-size:12px; color:var(--accent-color);">0%</span>
+        </div>
+        <input type="range" min="0" max="100" value="0" oninput="updateVal('dimmer', this.value)">
+
+        <br>
+
+        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:12px;">Speed</span>
+            <span id="speed-val" style="font-size:12px; color:var(--accent-color);">50%</span>
+        </div>
+        <input type="range" min="0" max="100" value="50" oninput="updateVal('speed', this.value)">
+    </div>
+
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+</body>
+</html>
